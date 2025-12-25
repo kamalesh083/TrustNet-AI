@@ -1,37 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔐 TrustNet AI
 
-## Getting Started
+### 🤖 AI-Powered • 🔗 Blockchain-Verified • 🛡️ Trust Scoring Platform
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📌 Overview
+**TrustNet AI** is a decentralized trust scoring platform where **artificial intelligence analyzes behavioral patterns** and **blockchain ensures transparent, tamper-proof verification** of trust scores.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The project addresses the absence of reliable trust mechanisms in **Web3 systems**, including DeFi platforms, DAOs, and decentralized applications.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ❗ Problem Statement
+In Web3 ecosystems, wallet addresses act as identities, but there is **no native mechanism to evaluate trust or credibility**.
 
-## Learn More
+Centralized trust systems are:
+- ❌ Opaque
+- ❌ Biased
+- ❌ Vulnerable to manipulation
 
-To learn more about Next.js, take a look at the following resources:
+This creates challenges in:
+- ⚠️ DeFi lending risk assessment  
+- 🗳️ DAO governance decisions  
+- 👤 Web3 identity credibility  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💡 Solution
+TrustNet AI introduces an **AI-driven trust scoring system** that:
 
-## Deploy on Vercel
+- 📊 Analyzes behavioral and engagement data using machine learning  
+- 🧠 Generates an **explainable trust score**  
+- 🔗 Anchors a cryptographic proof of the score on blockchain  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> **AI provides intelligence, blockchain guarantees integrity.**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# TrustNet-AI
+---
+
+## ⚙️ How It Works
+1. 🔐 User connects wallet (decentralized identity)
+2. 📥 Behavioral data is collected and processed
+3. 🤖 AI model generates trust score with explanation
+4. ⛓️ Score hash is stored immutably on-chain
+5. ✅ Applications verify trust score transparently
+
+---
+
+## ✨ Key Features
+- 🤖 AI-based behavioral analysis  
+- 🧩 Explainable trust scoring  
+- 🔗 Blockchain-backed verification  
+- 👛 Wallet-based authentication  
+- 🔒 Privacy-first decentralized design  
+
+---
+
+## 🧰 Technology Stack
+
+### 🎨 Frontend
+- ⚛️ Next.js & React  
+- 🎨 Tailwind CSS  
+- 🌈 RainbowKit & Wagmi  
+
+### 🖥️ Backend
+- 🚀 Next.js API Routes  
+- 🔁 REST-based architecture  
+
+### 🧠 AI / Machine Learning
+- 🐍 Python  
+- 📈 Scikit-learn  
+- ⚡ FastAPI (AI microservice)  
+
+### ⛓️ Blockchain
+- 📜 Solidity  
+- 🔌 Ethers.js  
+- 🌐 Polygon / EVM-compatible networks  
+
+---
+
+## 🏗️ Architecture
+The system follows a **microservice-based architecture**:
+
+- 🤖 AI runs as an independent Python service  
+- 🌐 Web app communicates via REST APIs  
+- ⛓️ Blockchain stores **only verifiable proofs**, not raw data  
+
+This separation improves:
+- 📈 Scalability  
+- 🔐 Security  
+- ☁️ Deployment flexibility  
+
+---
+
+## 🧪 Use Cases
+- 💰 DeFi risk evaluation  
+- 🗳️ DAO voting credibility  
+- 🧑‍💼 Web3 freelancing trust systems  
+- 🚫 Sybil attack prevention  
+- 🌍 Decentralized reputation systems  
+
+---
+
+## 🚧 Project Status
+- ✅ Static UI completed  
+- ✅ Wallet authentication integrated  
+- 🔄 Backend & AI service under active development  
+
+---
+
+## 🚀 Future Enhancements
+- 🏛️ DAO-governed scoring rules  
+- 🔍 Advanced explainable AI techniques  
+- 🔗 Cross-chain trust scoring  
+- 🧾 Zero-knowledge proof-based verification  
+
+---
+
+## 🎯 Motivation
+This project was built to demonstrate **real-world system design** by combining **AI intelligence** with **blockchain-based verification**, focusing on **practical applicability, scalability, and transparency**.
+
+---
+
+## 👨‍💻 Author
+**Kamalesh A G**
