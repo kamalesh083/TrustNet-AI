@@ -63,8 +63,9 @@ export default function Home() {
                   transition
                 "
               />
-              <Button
-                className="
+              <a href="#explore">
+                <Button
+                  className="
                   flex items-center gap-1.5
                   rounded-full
                   border border-cyan-400/40
@@ -72,10 +73,11 @@ export default function Home() {
                   text-cyan-300
                   hover:bg-cyan-400/10
                   transition"
-              >
-                Explore
-                <ArrowDownToLine size={17} />
-              </Button>
+                >
+                  Explore
+                  <ArrowDownToLine size={17} />
+                </Button>
+              </a>
             </div>
 
             {/* Trust Note */}
@@ -115,7 +117,9 @@ export default function Home() {
           </div>
         </section>
 
-        <ProblemStatement />
+        <div id="explore">
+          <ProblemStatement />
+        </div>
         <SolutionOverview />
         <HowItWorks />
         <WhyAIBlockchain />
