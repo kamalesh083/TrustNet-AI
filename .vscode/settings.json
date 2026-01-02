@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["rainbowkit"]
+  "cSpell.words": ["rainbowkit"],
+  "postman.settings.dotenv-detection-notification-visibility": false
 }

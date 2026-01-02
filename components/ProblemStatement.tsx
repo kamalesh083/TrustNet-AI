@@ -1,6 +1,6 @@
 const ProblemStatement = () => {
   return (
-    <section className="w-full py-24 px-6 md:px-16 bg-gradient-to-b from-black to-slate-950 text-white">
+    <section className="w-full py-24 px-6 md:px-16 text-white">
       <div className="max-w-5xl mx-auto text-center">
         {/* Section Label */}
         <p className="text-sky-400 uppercase tracking-widest text-sm mb-3">

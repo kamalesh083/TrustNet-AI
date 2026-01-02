@@ -1,8 +1,9 @@
+import Link from "next/link";
 import Button from "./Button";
 
 const Highlights = () => {
   return (
-    <section className="w-full py-24 px-6 md:px-16 bg-black text-white">
+    <section className="w-full py-24 px-6 md:px-16 text-white">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -94,10 +95,12 @@ const Highlights = () => {
             Connect your wallet to view AI-generated insights backed by
             blockchain verification.
           </p>
-          <Button
-            label="Get Started"
-            className="px-8 py-3 rounded-full bg-sky-400 text-black font-semibold hover:bg-sky-300 transition"
-          />
+          <Link href="/Dashboard">
+            <Button
+              label="Get Started"
+              className="px-8 py-3 rounded-full bg-sky-400 text-black font-semibold hover:bg-sky-300 transition cursor-pointer"
+            />
+          </Link>
         </div>
       </div>
     </section>

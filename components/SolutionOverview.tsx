@@ -1,6 +1,6 @@
 const SolutionOverview = () => {
   return (
-    <section className="relative flex items-center w-full py-24 px-6 md:px-16  bg-black text-white">
+    <section className="relative flex items-center w-full py-24 px-6 md:px-16 text-white">
       <div className="max-w-6xl mx-auto">
         {/* Section Label */}
         <p className="text-sky-400 uppercase tracking-widest text-sm mb-4">

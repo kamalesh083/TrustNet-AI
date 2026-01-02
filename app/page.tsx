@@ -1,5 +1,5 @@
 import LightRays from "@/ui/LightRays";
-import Navbar from "@/components/Navbar";
+
 import { ArrowDownToLine } from "lucide-react";
 
 import Button from "@/components/Button";
@@ -7,13 +7,14 @@ import ProblemStatement from "@/components/ProblemStatement";
 import SolutionOverview from "@/components/SolutionOverview";
 import HowItWorks from "@/components/HowItWorks";
 import WhyAIBlockchain from "@/components/WhyAIBlockchain";
-import Highlights from "@/components/HighLlghts";
+import Highlights from "@/components/HighLights";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <LightRays
           raysOrigin="top-center"
           raysColor="#00ffff"
@@ -29,8 +30,6 @@ export default function Home() {
       </div>
 
       <main className="relative z-10 min-h-screen ">
-        <Navbar />
-        <hr className="text-gray-600 mb-12" />
         <section className="relative flex min-h-screen items-center justify-center px-6">
           <div className="mx-auto max-w-5xl text-center">
             {/* Headline */}
@@ -52,17 +51,19 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-5">
-              <Button
-                label="Get Started"
-                className="
+              <Link href="/Dashboard">
+                <Button
+                  label="Get Started"
+                  className="
                   rounded-full
                   bg-cyan-400 px-9 py-3.5
                   font-semibold text-black
                   hover:bg-cyan-300
                   shadow-[0_0_25px_rgba(34,211,238,0.45)]
-                  transition
+                  transition cursor-pointer
                 "
-              />
+                />
+              </Link>
               <a href="#explore">
                 <Button
                   className="
@@ -72,7 +73,7 @@ export default function Home() {
                   px-9 py-3.5
                   text-cyan-300
                   hover:bg-cyan-400/10
-                  transition"
+                  transition cursor-pointer"
                 >
                   Explore
                   <ArrowDownToLine size={17} />
