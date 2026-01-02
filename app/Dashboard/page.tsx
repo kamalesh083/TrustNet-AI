@@ -2,21 +2,24 @@ import Button from "@/components/Button";
 import Address from "./components/Address";
 import Verification from "./components/Verification";
 import RecentChainActivity from "./components/RecentChainActivity";
+import Link from "next/link";
 
 export default function GlassTrustDashboard() {
   return (
     <main className="min-h-screen text-white">
-      <section className="max-w-10/12 mx-auto px-5 sm:px-6 py-8 sm:py-10">
+      <section className="max-w-7xl sm:max-w-10/12 mx-auto px-5 sm:px-6 py-8 sm:py-10">
         {/* HEADER */}
         <div className="flex items-center justify-between gap-3 mb-6">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
             Trust Overview
           </h1>
-          <Button>
-            <span className="w-fit px-4 py-1 text-xs sm:text-sm rounded-md bg-green-500/20 text-green-400 border border-green-500/20">
-              VERIFY
-            </span>
-          </Button>
+          <Link href="/Verify">
+            <Button className="cursor-pointer">
+              <span className="w-fit px-4 py-1 text-xs sm:text-sm rounded-md bg-green-500/20 text-green-400 border border-green-500/20">
+                VERIFY
+              </span>
+            </Button>
+          </Link>
         </div>
 
         {/* MAIN GRID */}
