@@ -51,5 +51,4 @@ MIT License
 
 ---
 
-> **One-Line Pitch:**  
-> *TrustNet AI brings explainable, blockchain-verified trust intelligence to Web3 wallets.*
+
