@@ -14,6 +14,10 @@ export async function featureEngineering(txs: any[], address: `0x${string}`) {
       Avg_Val_Sent: 0,
       Min_Value_Received: 0,
       Max_Value_Received: 0,
+      Wallet_Age_Days: 0,
+      Failed_Tx_Ratio: 0,
+      Contract_Interaction_Ratio: 0,
+      Spike_Ratio: 0,
     };
   }
 
@@ -22,7 +26,6 @@ export async function featureEngineering(txs: any[], address: `0x${string}`) {
   const sentTx = txs.filter((tx) => tx.from?.toLowerCase() === addr);
   const receivedTx = txs.filter((tx) => tx.to?.toLowerCase() === addr);
 
-  // Sort by time (ascending)
   const sortedTxs = [...txs].sort(
     (a, b) => Number(a.timeStamp) - Number(b.timeStamp)
   );
@@ -66,6 +69,7 @@ export async function featureEngineering(txs: any[], address: `0x${string}`) {
 
   const sentValues = sentTx.map((tx) => Number(tx.value) / 1e18);
   const receivedValues = receivedTx.map((tx) => Number(tx.value) / 1e18);
+  const allValues = txs.map((tx) => Number(tx.value) / 1e18);
 
   const Min_Val_Sent = sentValues.length > 0 ? Math.min(...sentValues) : 0;
   const Max_Val_Sent = sentValues.length > 0 ? Math.max(...sentValues) : 0;
@@ -79,6 +83,37 @@ export async function featureEngineering(txs: any[], address: `0x${string}`) {
 
   const Max_Value_Received =
     receivedValues.length > 0 ? Math.max(...receivedValues) : 0;
+
+  /* ---------------- NEW ADVANCED FEATURES ---------------- */
+
+  // 1️⃣ Wallet Age (Days)
+  const Wallet_Age_Days =
+    (Date.now() / 1000 - Number(sortedTxs[0].timeStamp)) / (60 * 60 * 24);
+
+  // 2️⃣ Failed Transaction Ratio
+  const failedTxCount = txs.filter(
+    (tx) => tx.isError === "1" || tx.txreceipt_status === "0"
+  ).length;
+
+  const Failed_Tx_Ratio = failedTxCount / txs.length;
+
+  // 3️⃣ Contract Interaction Ratio
+  const contractTxCount = txs.filter(
+    (tx) =>
+      tx.to &&
+      tx.to !== "" &&
+      tx.to !== "0x0000000000000000000000000000000000000000" &&
+      tx.input &&
+      tx.input !== "0x"
+  ).length;
+
+  const Contract_Interaction_Ratio = contractTxCount / txs.length;
+
+  // 4️⃣ Spike Ratio (Max / Avg value)
+  const avgAllValue = allValues.reduce((a, b) => a + b, 0) / allValues.length;
+
+  const Spike_Ratio =
+    avgAllValue > 0 ? Math.max(...allValues) / avgAllValue : 0;
 
   /* ---------------- FINAL FEATURE OBJECT ---------------- */
 
@@ -100,5 +135,10 @@ export async function featureEngineering(txs: any[], address: `0x${string}`) {
 
     Min_Value_Received,
     Max_Value_Received,
+
+    Wallet_Age_Days,
+    Failed_Tx_Ratio,
+    Contract_Interaction_Ratio,
+    Spike_Ratio,
   };
 }

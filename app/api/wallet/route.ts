@@ -31,7 +31,7 @@ export async function POST(req: Request) {
       !response.data.result ||
       response.data.result.length === 0
     ) {
-      return NextResponse.json([]); // 👈 important
+      return NextResponse.json([]);
     }
 
     // ✅ only last 3 transactions

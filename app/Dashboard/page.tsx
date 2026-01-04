@@ -3,6 +3,7 @@ import Address from "./components/Address";
 import Verification from "./components/Verification";
 import RecentChainActivity from "./components/RecentChainActivity";
 import Link from "next/link";
+import UrlHandler from "./components/UrlHandler";
 
 export default function GlassTrustDashboard() {
   return (
@@ -135,9 +136,7 @@ export default function GlassTrustDashboard() {
           >
             <p className="text-xs text-zinc-400 mb-2">Public Verification</p>
 
-            <code className="block truncate text-xs sm:text-sm text-cyan-300">
-              https://trustnet.io/verify/0x742d35Cc6634C053
-            </code>
+            <UrlHandler verifyId="abcd0125ghijkl9090" />
           </div>
         </div>
       </section>
