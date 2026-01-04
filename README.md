@@ -1,125 +1,48 @@
-# 🔐 TrustNet AI
+🔐 TrustNet AI
+Trust Intelligence for Web3
 
-### 🤖 AI-Powered • 🔗 Blockchain-Verified • 🛡️ Trust Scoring Platform
+TrustNet AI brings trust, transparency, and intelligence to Web3 by combining
+AI-driven behavioral analysis with blockchain-verified trust scores.
 
----
+Wallets are identities — TrustNet makes them credible.
 
-## 📌 Overview
-**TrustNet AI** is a decentralized trust scoring platform where **artificial intelligence analyzes behavioral patterns** and **blockchain ensures transparent, tamper-proof verification** of trust scores.
+⚡ The Problem
 
-The project addresses the absence of reliable trust mechanisms in **Web3 systems**, including DeFi platforms, DAOs, and decentralized applications.
+Web3 has no reliable way to measure trust.
+This leads to risky DeFi interactions, weak DAO governance, and fake reputations.
 
----
+💡 The Solution
 
-## ❗ Problem Statement
-In Web3 ecosystems, wallet addresses act as identities, but there is **no native mechanism to evaluate trust or credibility**.
+🤖 AI analyzes wallet behavior
 
-Centralized trust systems are:
-- ❌ Opaque
-- ❌ Biased
-- ❌ Vulnerable to manipulation
+🧠 Generates an explainable trust score
 
-This creates challenges in:
-- ⚠️ DeFi lending risk assessment  
-- 🗳️ DAO governance decisions  
-- 👤 Web3 identity credibility  
+⛓️ Blockchain stores a tamper-proof proof
 
----
+Smart decisions. Verifiable trust.
 
-## 💡 Solution
-TrustNet AI introduces an **AI-driven trust scoring system** that:
+🧠 What It Enables
 
-- 📊 Analyzes behavioral and engagement data using machine learning  
-- 🧠 Generates an **explainable trust score**  
-- 🔗 Anchors a cryptographic proof of the score on blockchain  
+DeFi risk assessment
 
-> **AI provides intelligence, blockchain guarantees integrity.**
+DAO voting credibility
 
----
+Web3 reputation systems
 
-## ⚙️ How It Works
-1. 🔐 User connects wallet (decentralized identity)
-2. 📥 Behavioral data is collected and processed
-3. 🤖 AI model generates trust score with explanation
-4. ⛓️ Score hash is stored immutably on-chain
-5. ✅ Applications verify trust score transparently
+Sybil attack prevention
 
----
+🧰 Stack
 
-## ✨ Key Features
-- 🤖 AI-based behavioral analysis  
-- 🧩 Explainable trust scoring  
-- 🔗 Blockchain-backed verification  
-- 👛 Wallet-based authentication  
-- 🔒 Privacy-first decentralized design  
+Next.js • Tailwind • Wagmi • RainbowKit • Python • Scikit-learn • Solidity
 
----
+🚧 Status
 
-## 🧰 Technology Stack
+MVP in progress — UI & wallet integration completed
 
-### 🎨 Frontend
-- ⚛️ Next.js & React  
-- 🎨 Tailwind CSS  
-- 🌈 RainbowKit & Wagmi  
+👨‍💻 Author
 
-### 🖥️ Backend
-- 🚀 Next.js API Routes  
-- 🔁 REST-based architecture  
+Kamalesh A G
 
-### 🧠 AI / Machine Learning
-- 🐍 Python  
-- 📈 Scikit-learn  
-- ⚡ FastAPI (AI microservice)  
+📄 License
 
-### ⛓️ Blockchain
-- 📜 Solidity  
-- 🔌 Ethers.js  
-- 🌐 Polygon / EVM-compatible networks  
-
----
-
-## 🏗️ Architecture
-The system follows a **microservice-based architecture**:
-
-- 🤖 AI runs as an independent Python service  
-- 🌐 Web app communicates via REST APIs  
-- ⛓️ Blockchain stores **only verifiable proofs**, not raw data  
-
-This separation improves:
-- 📈 Scalability  
-- 🔐 Security  
-- ☁️ Deployment flexibility  
-
----
-
-## 🧪 Use Cases
-- 💰 DeFi risk evaluation  
-- 🗳️ DAO voting credibility  
-- 🧑‍💼 Web3 freelancing trust systems  
-- 🚫 Sybil attack prevention  
-- 🌍 Decentralized reputation systems  
-
----
-
-## 🚧 Project Status
-- ✅ Static UI completed  
-- ✅ Wallet authentication integrated  
-- 🔄 Backend & AI service under active development  
-
----
-
-## 🚀 Future Enhancements
-- 🏛️ DAO-governed scoring rules  
-- 🔍 Advanced explainable AI techniques  
-- 🔗 Cross-chain trust scoring  
-- 🧾 Zero-knowledge proof-based verification  
-
----
-
-## 🎯 Motivation
-This project was built to demonstrate **real-world system design** by combining **AI intelligence** with **blockchain-based verification**, focusing on **practical applicability, scalability, and transparency**.
-
----
-
-## 👨‍💻 Author
-**Kamalesh A G**
+MIT License
