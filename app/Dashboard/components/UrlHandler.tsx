@@ -11,7 +11,7 @@ export default function VerifyLink({ verifyId }: VerifyLinkProps) {
   const [copied, setCopied] = useState(false);
 
   const fullUrl = useMemo(
-    () => `https://trust-net-ai.vercel.app/verify/${verifyId}`,
+    () => `https://trust-net-ai.vercel.app/Profile/${verifyId}`,
     [verifyId]
   );
 

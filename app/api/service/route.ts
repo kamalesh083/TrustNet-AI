@@ -1,5 +1,6 @@
 import { fetchTransactions } from "@/backend/services/transaction.services";
 import { featureEngineering } from "@/backend/utils/featureEngineering";
+import axios from "axios";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -17,7 +18,16 @@ export async function POST(req: Request) {
 
     const features = await featureEngineering(transactions, address);
 
-    return NextResponse.json({ features });
+    const response = await axios.post(
+      "http://127.0.0.1:8000/predict",
+      features,
+      {
+        headers: { "Content-Type": "application/json" },
+        timeout: 10000,
+      }
+    );
+
+    return NextResponse.json(response.data);
   } catch (error) {
     console.log(error);
     return NextResponse.json(
