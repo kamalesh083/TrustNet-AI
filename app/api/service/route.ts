@@ -19,11 +19,11 @@ export async function POST(req: Request) {
     const features = await featureEngineering(transactions, address);
 
     const response = await axios.post(
-      "http://127.0.0.1:8000/predict",
+      "https://trustnet-ml-backend.onrender.com/predict",
       features,
       {
         headers: { "Content-Type": "application/json" },
-        timeout: 10000,
+        timeout: 60000,
       }
     );
 
