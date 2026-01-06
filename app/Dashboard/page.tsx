@@ -8,7 +8,7 @@ import VerifyButton from "./components/VerifyButton";
 
 export default function GlassTrustDashboard() {
   return (
-    <main className="min-h-screen text-white">
+    <main className="min-h-screen text-white bg-black">
       <section className="max-w-7xl sm:max-w-10/12 mx-auto px-5 sm:px-6 py-8 sm:py-10">
         {/* Wallet warning*/}
         <WalletWarningBanner />

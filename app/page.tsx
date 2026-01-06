@@ -29,7 +29,7 @@ export default function Home() {
         />
       </div>
 
-      <main className="relative z-10 min-h-screen ">
+      <main className="relative z-10 min-h-screen">
         <section className="relative flex min-h-screen items-center justify-center px-6">
           <div className="mx-auto max-w-5xl text-center">
             {/* Headline */}
