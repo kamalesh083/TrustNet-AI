@@ -24,7 +24,7 @@ const Navbar = () => {
         </Link>
         <ConnectButton />
       </nav>
-      <hr className="text-gray-600  pb-12 sm:pb-3" />
+      <hr className="text-gray-600" />
     </>
   );
 };
