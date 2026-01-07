@@ -2,23 +2,20 @@
 
 import { Copy, Check } from "lucide-react";
 import { useState, useMemo } from "react";
+import { useAccount } from "wagmi";
+import addrRed from "../utils/reducer";
 
-interface VerifyLinkProps {
-  verifyId: string;
-}
-
-export default function VerifyLink({ verifyId }: VerifyLinkProps) {
+export default function VerifyLink() {
+  const { address } = useAccount();
   const [copied, setCopied] = useState(false);
+  const verifyId = addrRed(address);
 
   const fullUrl = useMemo(
-    () => `https://trust-net-ai.vercel.app/Profile/${verifyId}`,
-    [verifyId]
+    () => `https://trust-net-ai.vercel.app/Profile/${address}`,
+    [address]
   );
 
-  const shortUrl = useMemo(
-    () => `https://trust-net-ai.vercel.app/...../${verifyId.slice(-5)}`,
-    [verifyId]
-  );
+  const shortUrl = `https://trust-net-ai.vercel.app/Profile/${verifyId}`;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(fullUrl);
