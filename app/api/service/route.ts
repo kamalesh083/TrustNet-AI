@@ -23,7 +23,7 @@ export async function POST(req: Request) {
       features,
       {
         headers: { "Content-Type": "application/json" },
-        timeout: 60000,
+        timeout: 70000,
       }
     );
 

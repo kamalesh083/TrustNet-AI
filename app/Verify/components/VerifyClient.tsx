@@ -44,21 +44,21 @@ export default function VerifyClient() {
         chainId: chainId,
       });
 
-      /* STEP 2 — backend ML call */
-
+      /* STEP 2 — gemini response*/
       setCurrentStep(1);
 
-      console.log(res.data);
+      const geminiRes = await axios.post("/api/analyze", res.data);
+      console.log("Gemini Response:", geminiRes.data.explanation);
 
       /* STEP 3 — inference complete */
       setCurrentStep(2);
 
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { trust_score, confidence_score, reasons } = res.data;
+      const { trust_score, confidence_score } = res.data;
 
       setScore(trust_score);
       setConfidence(confidence_score);
-      setReasons(reasons);
+      setReasons(geminiRes.data.explanation || []);
+      console.log("blockchain response:", score, confidence, reasons);
     } catch (err) {
       console.error(err);
       setError("Verification failed. Please try again.");
@@ -175,7 +175,7 @@ export default function VerifyClient() {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className="rounded-xl p-4 bg-white/5 border border-white/10 text-sm"
+                    className="rounded-xl p-4 bg-white/5 border border-white/10 text-sm "
                   >
                     {r}
                   </motion.div>

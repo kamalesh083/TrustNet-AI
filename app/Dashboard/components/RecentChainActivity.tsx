@@ -7,7 +7,7 @@ const shorten = (addr: string) =>
   addr.length > 10 ? `${addr.slice(0, 6)}...${addr.slice(-4)}` : addr;
 
 const RecentChainActivity = () => {
-  const { address } = useAccount();
+  const { address, isConnected } = useAccount();
   const txs = useRecentTxPreview(address as `0x${string}`);
 
   const recentThree = txs.slice(0, 3); // ✅ GUARANTEED ONLY 3
@@ -25,7 +25,13 @@ const RecentChainActivity = () => {
       </p>
 
       {recentThree.length === 0 ? (
-        <p className="text-xs text-zinc-500">No recent activity</p>
+        isConnected ? (
+          <p className="text-xs text-zinc-500">No recent activity</p>
+        ) : (
+          <p className="text-xs text-zinc-500">
+            Connect your wallet to see recent activity
+          </p>
+        )
       ) : (
         <ul className="space-y-2 text-xs sm:text-sm">
           {recentThree.map((tx, i) => (
