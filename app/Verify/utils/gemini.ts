@@ -71,6 +71,10 @@ export async function getFeature(shapData: ShapInput) {
         ];
   } catch (err) {
     console.error("Gemini error:", err);
-    return;
+    throw new Error(
+      err instanceof Error
+        ? err.message
+        : "AI explanation service is temporarily unavailable"
+    );
   }
 }
