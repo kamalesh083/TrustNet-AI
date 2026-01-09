@@ -10,6 +10,8 @@ import { useAccount } from "wagmi";
 
 import RenderIssue from "./RenderIssue";
 
+import { verifyProfileAction } from "../actions/verify";
+
 const steps = [
   "Fetching on-chain activity",
   "Engineering wallet features",
@@ -63,6 +65,19 @@ export default function VerifyClient() {
 
       /* STEP 3 — inference complete */
       setCurrentStep(2);
+      const verification = await verifyProfileAction({
+        email,
+        address: address || "",
+        trustScore: geminiRes.data.trust_score,
+        reasons: geminiRes.data.explanation || [],
+      });
+      if (!verification.success) {
+        throw new Error("Server-side verification action failed.");
+      }
+      console.log("Encrypted Data:", {
+        email: verification.encryptedEmail,
+        reasons: verification.encryptedReasons,
+      });
 
       const { trust_score, confidence_score } = res.data;
 
