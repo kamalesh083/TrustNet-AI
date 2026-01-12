@@ -1,0 +1,199 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "trustScore",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "encryptedEmail",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "encryptedReasons",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "encryptedDetails",
+        "type": "string"
+      }
+    ],
+    "name": "storeProfile",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_verifier",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "trustScore",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "TrustProfileVerified",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_newVerifier",
+        "type": "address"
+      }
+    ],
+    "name": "updateVerifier",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      }
+    ],
+    "name": "getLatestProfile",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "trustScore",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "encryptedEmail",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "encryptedReasons",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "encryptedDetails",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "timeStamp",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "getProfileByIndex",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "trustScore",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "encryptedEmail",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "encryptedReasons",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "encryptedDetails",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      }
+    ],
+    "name": "getProfileCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "verifier",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

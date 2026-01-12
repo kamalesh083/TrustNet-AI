@@ -10,8 +10,6 @@ import { useAccount } from "wagmi";
 
 import RenderIssue from "./RenderIssue";
 
-import { verifyProfileAction } from "../actions/verify";
-
 const steps = [
   "Fetching on-chain activity",
   "Engineering wallet features",
@@ -52,36 +50,41 @@ export default function VerifyClient() {
 
     try {
       /* STEP 1 — fetch + preprocess */
+
       setCurrentStep(0);
       const res = await axios.post("/api/service", {
         address,
         chainId,
         email,
       });
+      console.log(res.data.ml_result);
 
       /* STEP 2 — AI explanation */
       setCurrentStep(1);
-      const geminiRes = await axios.post("/api/analyze", res.data);
+      const geminiRes = await axios.post("/api/analyze", res.data.ml_result);
 
       /* STEP 3 — inference complete */
+      const walletAge = res.data.wallet_age_days;
+      const txCount = res.data.total_transactions;
+
+      console.log(JSON.stringify({ walletAge, txCount }));
+
       setCurrentStep(2);
-      const verification = await verifyProfileAction({
+      const { trust_score, confidence_score } = res.data.ml_result;
+      const normalizedTrustScore = Math.round(trust_score);
+
+      const resBlock = await axios.post("/api/verify/writeContract", {
+        user: address,
+        trustScore: normalizedTrustScore,
         email,
-        address: address || "",
-        trustScore: geminiRes.data.trust_score,
         reasons: geminiRes.data.explanation || [],
-      });
-      if (!verification.success) {
-        throw new Error("Server-side verification action failed.");
-      }
-      console.log("Encrypted Data:", {
-        email: verification.encryptedEmail,
-        reasons: verification.encryptedReasons,
+        details: JSON.stringify({
+          walletAge,
+          txCount,
+        }),
       });
 
-      const { trust_score, confidence_score } = res.data;
-
-      setScore(trust_score);
+      setScore(normalizedTrustScore);
       setConfidence(confidence_score);
       setReasons(geminiRes.data.explanation || []);
     } catch (err) {

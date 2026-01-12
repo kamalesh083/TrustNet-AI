@@ -26,8 +26,14 @@ export async function POST(req: Request) {
         timeout: 70000,
       }
     );
-
-    return NextResponse.json(response.data);
+    const walletAge = features.Wallet_Age_Days;
+    const txCount = features.Sent_tnx + features.Received_tnx;
+    return NextResponse.json({
+      ml_result: response.data,
+      wallet_age_days: walletAge,
+      total_transactions: txCount,
+      features_used: features,
+    });
   } catch (error) {
     console.log(error);
     return NextResponse.json(
