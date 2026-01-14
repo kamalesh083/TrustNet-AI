@@ -6,6 +6,7 @@ import UrlHandler from "./components/UrlHandler";
 import WalletWarningBanner from "./components/WalletWarning";
 import VerifyButton from "./components/VerifyButton";
 import RiskSignals from "./components/RiskSignals";
+import History from "./components/History";
 
 export default function GlassTrustDashboard() {
   return (
@@ -68,37 +69,7 @@ export default function GlassTrustDashboard() {
               border border-white/10 p-5 sm:p-6
             "
           >
-            <p className="text-xs text-zinc-400 mb-4">Wallet Analytics</p>
-
-            <div
-              className="
-                rounded-2xl bg-black/30 backdrop-blur-xl
-                border border-cyan-500/20 p-4 sm:p-5
-              "
-            >
-              <p className="text-xs uppercase tracking-wider text-cyan-400 mb-3">
-                Why this score?
-              </p>
-
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
-                <li className="flex gap-2">
-                  <span className="text-cyan-400">▸</span>
-                  Wallet age exceeds 2 years
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-cyan-400">▸</span>
-                  Consistent transactions
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-cyan-400">▸</span>
-                  Low-risk smart contracts
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-cyan-400">▸</span>
-                  No anomalies detected
-                </li>
-              </ul>
-            </div>
+            <History />
           </div>
 
           {/* RISK */}
