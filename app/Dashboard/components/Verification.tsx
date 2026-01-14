@@ -7,6 +7,7 @@ import { useAccount } from "wagmi";
 const Verification = () => {
   const [isVerified, setIsVerified] = useState<boolean>(true);
   const [score, setScore] = useState<number | null>(null);
+  const [confidence_score, setConfidence_score] = useState<number | null>();
   const { address } = useAccount(); // Assuming `useAccount` provides the `address`
 
   useEffect(() => {
@@ -20,6 +21,10 @@ const Verification = () => {
             setIsVerified(false);
           }
           setScore(response.data.trustScore);
+          if (!response.data.details.confidence_score) {
+            setConfidence_score(0);
+          }
+          setConfidence_score(response.data.details.confidence_score);
           console.log("Fetched score:", response.data);
           setIsVerified(true);
         } catch (error) {
@@ -43,7 +48,7 @@ const Verification = () => {
       </div>
 
       <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-zinc-400">
-        Confidence: 92%
+        Confidence: {confidence_score}%
       </p>
     </>
   );

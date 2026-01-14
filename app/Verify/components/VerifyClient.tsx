@@ -81,8 +81,10 @@ export default function VerifyClient() {
         details: JSON.stringify({
           walletAge,
           txCount,
+          confidence_score,
         }),
       });
+      console.log(resBlock);
 
       setScore(normalizedTrustScore);
       setConfidence(confidence_score);

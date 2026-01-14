@@ -41,7 +41,14 @@ export async function readContract(user: `0x${string}`) {
       details,
       timestamp: Number(timestamp),
     };
-  } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    if (
+      error?.reason === "No profile found!!" ||
+      error?.shortMessage?.includes("No profile found")
+    ) {
+      return null;
+    }
     console.error("Error reading contract:", error);
     throw error;
   }
