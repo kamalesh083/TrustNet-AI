@@ -5,6 +5,7 @@ import RecentChainActivity from "./components/RecentChainActivity";
 import UrlHandler from "./components/UrlHandler";
 import WalletWarningBanner from "./components/WalletWarning";
 import VerifyButton from "./components/VerifyButton";
+import RiskSignals from "./components/RiskSignals";
 
 export default function GlassTrustDashboard() {
   return (
@@ -44,13 +45,6 @@ export default function GlassTrustDashboard() {
             <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl" />
 
             <Verification />
-
-            <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-zinc-300">
-              <li>• Wallet age &gt; 2 years</li>
-              <li>• Stable on-chain behavior</li>
-              <li>• Low-risk contract usage</li>
-              <li>• No suspicious patterns</li>
-            </ul>
           </div>
 
           {/* IDENTITY */}
@@ -115,11 +109,7 @@ export default function GlassTrustDashboard() {
               border border-white/10 p-5 sm:p-6
             "
           >
-            <p className="text-xs text-zinc-400 mb-4">Risk Signals</p>
-
-            <p className="text-sm text-cyan-400">
-              No high-risk indicators detected
-            </p>
+            <RiskSignals />
           </div>
 
           {/* ACTIVITY */}
