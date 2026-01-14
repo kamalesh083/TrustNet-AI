@@ -55,7 +55,7 @@ const Address = () => {
                 size={18}
                 className={`
                   absolute inset-0
-                  transition-all duration-200
+                  transition-all duration-200 cursor-pointer
                   ${copied ? "scale-0 opacity-0" : "scale-100 opacity-100"}
                 `}
               />
