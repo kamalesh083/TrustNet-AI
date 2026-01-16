@@ -32,38 +32,53 @@ const getColorClasses = (score: number) => {
 export default function VerificationHistoryPage() {
   const [history, setHistory] = useState<VerificationHistory[]>([]);
   const [loading, setLoading] = useState(true);
+
   const { address } = useAccount();
   const router = useRouter();
 
-  // replace later with wallet address
+  // Redirect if wallet not connected
   useEffect(() => {
     if (!address) {
       router.replace("/Dashboard");
     }
   }, [address, router]);
 
+  // Fetch verification history
   useEffect(() => {
-    fetch(`/api/history/${address}`)
-      .then((res) => res.json())
-      .then(setHistory)
-      .finally(() => setLoading(false));
+    if (!address) return;
+
+    const fetchHistory = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(`/api/history/${address}`);
+        const data = await res.json();
+        setHistory(data);
+      } catch {
+        setHistory([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchHistory();
   }, [address]);
 
   if (loading) {
     return (
-      <div className="pt-20 text-center text-gray-400 ">
+      <div className="pt-20 text-center text-gray-400">
         Loading verification history…
       </div>
     );
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 text-gray-200">
       {/* HEADER */}
       <div className="mb-12">
-        <h1 className="text-3xl font-bold block bg-linear-to-r from-white via-sky-400 to-cyan-500 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(56,189,248,0.35)]">
+        <h1 className="text-3xl font-bold bg-linear-to-r from-white via-sky-400 to-cyan-500 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(56,189,248,0.35)]">
           Verification History
         </h1>
+
         <p className="mt-2 max-w-2xl text-sm text-gray-400">
           A chronological log of trust verifications performed on this identity.
         </p>
@@ -71,6 +86,7 @@ export default function VerificationHistoryPage() {
         <div className="mt-6 h-1 w-32 rounded bg-linear-to-r from-green-400 via-yellow-400 to-cyan-400 shadow-md shadow-cyan-400/40" />
       </div>
 
+      {/* HISTORY LIST */}
       {history.map((item, index) => {
         const colors = getColorClasses(item.trustScore);
 
@@ -85,16 +101,18 @@ export default function VerificationHistoryPage() {
             <div
               className={`relative rounded-2xl border border-white/10 p-6 backdrop-blur-lg shadow-xl shadow-black/40 ${colors.bg}`}
             >
+              {/* LEFT COLOR BAR */}
               <div
                 className={`absolute left-0 top-0 h-full w-1.5 rounded-l-2xl ${colors.rail}`}
               />
 
               {/* CARD HEADER */}
-              <div className="flex justify-between">
+              <div className="flex justify-between gap-4">
                 <div>
                   <p className="text-sm text-gray-400">Verified Email</p>
-                  <p className="text-white">{item.mail}</p>
+                  <p className="text-white break-all">{item.mail}</p>
                 </div>
+
                 <div className="text-right">
                   <p className="text-sm text-gray-400">Trust Score</p>
                   <p className={`text-xl font-bold ${colors.score}`}>
@@ -105,29 +123,32 @@ export default function VerificationHistoryPage() {
 
               {/* DETAILS */}
               <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-3 text-sm">
-                <div className="rounded-lg bg-white/10 p-3">
+                <div className="rounded-lg bg-white/10 p-3 text-gray-200">
                   Wallet Age: {item.details.walletAge}
                 </div>
-                <div className="rounded-lg bg-white/10 p-3">
-                  Confidence: {(item.details.confidenceScore * 100).toFixed(0)}%
+
+                <div className="rounded-lg bg-white/10 p-3 text-gray-200">
+                  Confidence: {item.details.confidenceScore.toFixed(0)}%
                 </div>
-                <div className="rounded-lg bg-white/10 p-3">
+
+                <div className="rounded-lg bg-white/10 p-3 text-gray-200">
                   Tx Count: {item.details.totalTransactions}
                 </div>
               </div>
 
               {/* REASONS */}
               <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                {item.reasons.map((r, i) => (
+                {item.reasons.map((reason, i) => (
                   <li
                     key={i}
-                    className="rounded-lg bg-white/10 px-3 py-2 text-sm"
+                    className="rounded-lg bg-white/10 px-3 py-2 text-sm text-gray-200"
                   >
-                    • {r}
+                    • {reason}
                   </li>
                 ))}
               </ul>
 
+              {/* FOOTER */}
               <div className="mt-6 text-right text-xs text-gray-400">
                 Verified on {formatTimestamp(item.timestamp)}
               </div>

@@ -9,19 +9,16 @@ const verifierPrivateKey = process.env.VERIFIER_PRIVATE_KEY || "";
 if (!contractAddress) {
   throw new Error("CONTRACT_ADDRESS is not defined in environment variables");
 }
-console.log("Contract Address:", contractAddress);
+
 if (!rpcUrl) {
   throw new Error("AMOY_RPC_URL is not defined in environment variables");
 }
-console.log("RPC URL:", rpcUrl);
 
 if (!verifierPrivateKey) {
   throw new Error(
     "VERIFIER_PRIVATE_KEY is not defined in environment variables"
   );
 }
-console.log("private Key : ", verifierPrivateKey);
-
 const provider = new ethers.JsonRpcProvider(rpcUrl);
 
 const wallet = new ethers.Wallet(verifierPrivateKey);
