@@ -249,7 +249,7 @@ export default function VerifyClient() {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className="rounded-xl p-4 bg-white/5 border border-white/10 text-sm"
+                    className="rounded-xl p-4 bg-white/5 border border-white/10 text-sm text-white/90"
                   >
                     {r}
                   </motion.div>
