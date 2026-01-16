@@ -115,7 +115,9 @@ export default function VerifyClient() {
         {/* Header */}
         <div className="flex items-center gap-3 mb-8">
           <ShieldCheck className="w-7 h-7 text-cyan-400" />
-          <h1 className="text-xl font-semibold">Trust Verification</h1>
+          <h1 className="text-xl font-semibold text-white/90">
+            Trust Verification
+          </h1>
         </div>
 
         {/* Email + Start */}
